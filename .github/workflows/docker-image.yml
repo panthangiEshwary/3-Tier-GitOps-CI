@@ -39,6 +39,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # This fetches the entire commit history
 
       - name: Gitleaks Setup
         uses: gitleaks/gitleaks-action@v2
