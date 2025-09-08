@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   mysql:
-    image: mysql:8
+    image: mysql:8          # Uses local image if already pulled/built
     container_name: mysql
     restart: always
     environment:
@@ -16,6 +16,7 @@ services:
 
   backend:
     build: ./api
+    image: panthangi/backend:latest   # Explicit local image tag
     container_name: backend-api
     environment:
       DB_HOST: mysql
@@ -31,6 +32,7 @@ services:
 
   frontend:
     build: ./client
+    image: panthangi/frontend:latest   # Explicit local image tag
     container_name: frontend-react
     ports:
       - "3000:80"
